@@ -13,11 +13,60 @@ source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 2. Lancer le Dashboard Streamlit
+---
+
+## Installation
+
+> **Python 3.11 obligatoire.** Python 3.12+, 3.13 et 3.14 ne sont **pas compatibles** avec scipy/shap utilisés dans ce projet.
+
+---
+
+### Mac Apple Silicon (M1/M2/M3)
+
+#### Installation (première fois uniquement)
 
 ```bash
+brew install libomp
+brew install python@3.11
+python3.11 -m venv venv311
+source venv311/bin/activate
+pip install -r requirements.txt
+```
+
+> **Note Mac :** `libomp` est **obligatoire** pour XGBoost sur Apple Silicon. Sans cette dépendance, le dashboard ne se lance pas (`OMP error`).
+
+#### Lancer le dashboard (à chaque fois)
+
+```bash
+cd groupe-03-credit-scoring-xai
+source venv311/bin/activate
 streamlit run src/dashboard/app.py
 ```
+
+---
+
+### Windows
+
+#### Installation (première fois uniquement)
+
+```bash
+python -m venv venv311
+venv311\Scripts\activate
+pip install -r requirements.txt
+```
+
+> **Note Windows :** `libomp` n'est pas nécessaire — XGBoost l'inclut nativement dans sa distribution Windows. Installer Python 3.11 depuis https://www.python.org/downloads/release/python-3119/
+
+#### Lancer le dashboard (à chaque fois)
+
+```bash
+cd groupe-03-credit-scoring-xai
+venv311\Scripts\activate
+streamlit run src/dashboard/app.py
+```
+
+---
+
 
 Le dashboard sera accessible à l'adresse : `http://localhost:8501`
 
