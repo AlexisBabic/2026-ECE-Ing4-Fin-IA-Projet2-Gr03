@@ -247,3 +247,4 @@ if __name__ == "__main__":
     print(f"\n[DATA] Variable roles:\n{roles}")
     print(f"[DATA] True ATE = {get_true_ate(df):.5f}")
     print(f"\n[DATA] Summary statistics:\n{df.describe().round(4)}")
+    
